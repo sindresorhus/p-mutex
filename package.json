@@ -1,6 +1,6 @@
 {
 	"name": "p-mutex",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Async mutex lock for managing access to a shared resource",
 	"license": "MIT",
 	"repository": "sindresorhus/p-mutex",
