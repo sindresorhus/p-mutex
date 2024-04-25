@@ -1,0 +1,57 @@
+{
+	"name": "p-mutex",
+	"version": "0.0.0",
+	"description": "Async mutex lock for managing access to a shared resource",
+	"license": "MIT",
+	"repository": "sindresorhus/p-mutex",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "https://sindresorhus.com"
+	},
+	"type": "module",
+	"exports": {
+		"types": "./index.d.ts",
+		"default": "./index.js"
+	},
+	"sideEffects": false,
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"test": "xo && ava && tsc index.d.ts"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"promise",
+		"lock",
+		"mutex",
+		"mutual",
+		"exclusion",
+		"async",
+		"await",
+		"semaphore",
+		"sema",
+		"locking",
+		"wait",
+		"race",
+		"promises",
+		"concurrently",
+		"concurrency",
+		"parallel",
+		"resource",
+		"guard"
+	],
+	"dependencies": {
+		"yocto-queue": "^1.0.0"
+	},
+	"devDependencies": {
+		"ava": "^6.1.2",
+		"typescript": "^5.4.5",
+		"xo": "^0.58.0"
+	}
+}
