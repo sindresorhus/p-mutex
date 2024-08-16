@@ -38,6 +38,7 @@ export default class Mutex {
 			if (!this.tryLock()) {
 				await this.lock();
 			}
+
 			return await task();
 		} finally {
 			this.unlock();
