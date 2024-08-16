@@ -4,6 +4,15 @@ export default class Mutex {
 	#queue = new Queue();
 	#isLocked = false;
 
+	tryLock() {
+		if (!this.#isLocked) {
+			this.#isLocked = true;
+			return true;
+		}
+
+		return false;
+	}
+
 	async lock() {
 		if (!this.#isLocked) {
 			this.#isLocked = true;
@@ -26,7 +35,9 @@ export default class Mutex {
 
 	async withLock(task) {
 		try {
-			await this.lock();
+			if (!this.tryLock()) {
+				await this.lock();
+			}
 			return await task();
 		} finally {
 			this.unlock();
