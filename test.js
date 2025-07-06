@@ -128,9 +128,10 @@ test('Multiple calls to lock without unlock between them', async t => {
 
 	// Attempt to acquire a second lock. This should not resolve until the first lock is unlocked.
 	let lockAcquired = false;
-	const lockPromise = mutex.lock().then(() => {
+	const lockPromise = (async () => {
+		await mutex.lock();
 		lockAcquired = true; // This should only be set to true after the unlock allows this lock to acquire.
-	});
+	})();
 
 	// Ensure that the lock has not been prematurely acquired.
 	await setTimeout(100); // Give some time for any potential premature execution.
@@ -152,9 +153,10 @@ test('Mutex is not reentrant', async t => {
 	await mutex.lock();
 
 	let deadlock = false;
-	mutex.lock().then(() => {
+	(async () => {
+		await mutex.lock();
 		deadlock = true;
-	});
+	})();
 
 	await setTimeout(100);
 	t.false(deadlock, 'Mutex should not allow reentrant locking');

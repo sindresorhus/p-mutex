@@ -17,7 +17,7 @@
 	},
 	"sideEffects": false,
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	},
 	"scripts": {
 		"test": "xo && ava && tsc index.d.ts"
@@ -47,11 +47,11 @@
 		"guard"
 	],
 	"dependencies": {
-		"yocto-queue": "^1.0.0"
+		"yocto-queue": "^1.2.1"
 	},
 	"devDependencies": {
-		"ava": "^6.1.2",
-		"typescript": "^5.4.5",
-		"xo": "^0.58.0"
+		"ava": "^6.4.0",
+		"typescript": "^5.8.3",
+		"xo": "^0.60.0"
 	}
 }
